@@ -1,7 +1,7 @@
 let statusBulb_1 = false;
 let statusBulb_2 = false;
 let statusFan = false;
-
+let mode = true; //mode false => chế độ chỉnh tay manual
 
 // Chức năng Đèn 1
 function toggleStatusBulb_1() {
@@ -42,3 +42,35 @@ function toggleStatusFan() {
   }
   console.log('Đèn 2 đang mở: ', statusBulb_2);
 }
+
+// Chức năng Quạt
+function toggleMode() {
+  mode = !mode;
+  if (mode) {
+    document.getElementById('mode-status').innerHTML = 'automa';
+    document.getElementById('mode-text').innerHTML = 'automa';
+    document.getElementById('mode').style.backgroundColor = 'yellow';
+  } else {
+    document.getElementById('mode-status').innerHTML = 'manual';
+    document.getElementById('mode-text').innerHTML = 'manual';
+    document.getElementById('mode').style.backgroundColor = 'grey';
+  }
+  console.log('Chế độ Tự động: ', mode);
+}
+
+// var setTimeBtn = document.getElementById('settime-btn');
+
+// function showAlert() {
+//   if (mode) {
+//     alert("Thiết lập thời gian chỉ hoạt động ở chế độ Tự động");
+//   }
+// }
+
+$('#settime-btn').click(function() {
+
+  if (mode) {
+    $('#basicModal').modal('show');
+  } else {
+    alert("Thiết lập thời gian chỉ hoạt động ở chế độ Tự động");
+  }
+});
