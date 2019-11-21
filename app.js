@@ -2,6 +2,9 @@ let statusBulb_1 = false;
 let statusBulb_2 = false;
 let statusFan = false;
 let mode = true; //mode false => chế độ chỉnh tay manual
+let getTimeOn = "";
+let getTimeOff = "";
+
 
 // Chức năng Đèn 1
 function toggleStatusBulb_1() {
@@ -35,10 +38,8 @@ function toggleStatusFan() {
   statusFan = !statusFan;
   if (statusFan) {
     document.getElementById('fan-status').innerHTML = 'on';
-    document.getElementById('fan').style.backgroundColor = 'yellow';
   } else {
     document.getElementById('fan-status').innerHTML = 'off';
-    document.getElementById('fan').style.backgroundColor = 'grey';
   }
   console.log('Đèn 2 đang mở: ', statusBulb_2);
 }
@@ -56,6 +57,16 @@ function toggleMode() {
     document.getElementById('mode').style.backgroundColor = 'grey';
   }
   console.log('Chế độ Tự động: ', mode);
+}
+//Lưu giờ gian
+function saveChanges() {
+  getTimeOn = $('#time-on-input').val();
+  getTimeOff = $('#time-off-input').val();
+  document.getElementById('time-on').innerHTML = getTimeOn;
+  document.getElementById('time-off').innerHTML = getTimeOff;
+  // $('time-on').html(getTimeOn);
+  // $('time-off').html(getTimeOff);
+
 }
 
 // var setTimeBtn = document.getElementById('settime-btn');
